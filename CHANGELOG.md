@@ -8,14 +8,14 @@
 ## 0.16.0 (May 04, 2021)
 
 ### Breaking Changes
-- [\#355](https://github.com/cosmos/iavl/pull/355) `Get` in `iavlServer` no longer returns an error if the requested key does not exist. `GetResponse` now contains a `NotFound` boolean to indicate that a key does not exist, and the returned index will be that of the next occupied key.
+- [\#355](https://github.com/reapchain/iavl/pull/355) `Get` in `iavlServer` no longer returns an error if the requested key does not exist. `GetResponse` now contains a `NotFound` boolean to indicate that a key does not exist, and the returned index will be that of the next occupied key.
 
 ### Improvements
-- [\#355](https://github.com/cosmos/iavl/pull/355) Add support for `GetByIndex` to `iavlServer` and RPC interface.
+- [\#355](https://github.com/reapchain/iavl/pull/355) Add support for `GetByIndex` to `iavlServer` and RPC interface.
 
 ### Bug Fixes
-+ [\#385](https://github.com/cosmos/iavl/pull/385) Fix `GetVersioned` - now it works with `LazyLoadVersion`.
-+ [\#374](https://github.com/cosmos/iavl/pull/374) Fix large genesis file commit.
++ [\#385](https://github.com/reapchain/iavl/pull/385) Fix `GetVersioned` - now it works with `LazyLoadVersion`.
++ [\#374](https://github.com/reapchain/iavl/pull/374) Fix large genesis file commit.
 
 
 ## 0.15.3 (December 21, 2020)
@@ -24,7 +24,7 @@ Special thanks to external contributors on this release: @odeke-em
 
 ### Improvements
 
-- [\#352](https://github.com/cosmos/iavl/pull/352) Reuse buffer to improve performance of `GetMembershipProof()` and `GetNonMembershipProof()`.
+- [\#352](https://github.com/reapchain/iavl/pull/352) Reuse buffer to improve performance of `GetMembershipProof()` and `GetNonMembershipProof()`.
 
 ## 0.15.2 (December 14, 2020)
 
@@ -32,9 +32,9 @@ Special thanks to external contributors on this release: @odeke-em
 
 ### Bug Fixes
 
-- [\#347](https://github.com/cosmos/iavl/pull/347) Fix another integer overflow in `decodeBytes()` that can cause panics for certain inputs. The `ValueOp` and `AbsenceOp` proof decoders are vulnerable to this via malicious inputs since 0.15.0.
+- [\#347](https://github.com/reapchain/iavl/pull/347) Fix another integer overflow in `decodeBytes()` that can cause panics for certain inputs. The `ValueOp` and `AbsenceOp` proof decoders are vulnerable to this via malicious inputs since 0.15.0.
 
-- [\#349](https://github.com/cosmos/iavl/pull/349) Fix spurious blank lines in `PathToLeaf.String()`.
+- [\#349](https://github.com/reapchain/iavl/pull/349) Fix spurious blank lines in `PathToLeaf.String()`.
 
 ## 0.15.1 (December 13, 2020)
 
@@ -42,41 +42,41 @@ Special thanks to external contributors on this release: @odeke-em
 
 ### Bug Fixes
 
-- [\#340](https://github.com/cosmos/iavl/pull/340) Fix integer overflow in `decodeBytes()` that can cause panics on 64-bit systems and out-of-memory issues on 32-bit systems. The `ValueOp` and `AbsenceOp` proof decoders are vulnerable to this via malicious inputs. The bug was introduced in 0.15.0.
+- [\#340](https://github.com/reapchain/iavl/pull/340) Fix integer overflow in `decodeBytes()` that can cause panics on 64-bit systems and out-of-memory issues on 32-bit systems. The `ValueOp` and `AbsenceOp` proof decoders are vulnerable to this via malicious inputs. The bug was introduced in 0.15.0.
 
 ## 0.15.0 (November 23, 2020)
 
 The IAVL project has moved from https://github.com/tendermint/iavl to
-https://github.com/cosmos/iavl. This changes the module import path, which is now
-`github.com/cosmos/iavl`.
+https://github.com/reapchain/iavl. This changes the module import path, which is now
+`github.com/reapchain/iavl`.
 
 Users upgrading from 0.13 should read important upgrade information in the 0.14.0 release below.
 
 ### Breaking Changes
 
-- [\#285](https://github.com/cosmos/iavl/pull/285) The module path has changed from
-  `github.com/tendermint/iavl` to `github.com/cosmos/iavl`.
+- [\#285](https://github.com/reapchain/iavl/pull/285) The module path has changed from
+  `github.com/tendermint/iavl` to `github.com/reapchain/iavl`.
 
-- [\#304](https://github.com/cosmos/iavl/pull/304) Empty trees now return hashes rather than `nil`
+- [\#304](https://github.com/reapchain/iavl/pull/304) Empty trees now return hashes rather than `nil`
   from e.g. `Hash()`, `WorkingHash()`, and `SaveVersion()`, for conformance with RFC-6962.
 
-- [\#317](https://github.com/cosmos/iavl/pull/317) `LoadVersion()` and `LazyLoadVersion()` now
+- [\#317](https://github.com/reapchain/iavl/pull/317) `LoadVersion()` and `LazyLoadVersion()` now
   error if called with a positive version number on an empty tree.
 
 ### Improvements
 
-- [\#296](https://github.com/cosmos/iavl/pull/296) Add `iavlserver`, a gRPC/REST API server.
+- [\#296](https://github.com/reapchain/iavl/pull/296) Add `iavlserver`, a gRPC/REST API server.
 
-- [\#276](https://github.com/cosmos/iavl/pull/276/files) Introduced
+- [\#276](https://github.com/reapchain/iavl/pull/276/files) Introduced
   `ImmutableTree.GetMembershipProof()` and `GetNonMembershipProof()` to return ics23 ExistenceProof
   and NonExistenceProof respectively.
 
-- [\#265](https://github.com/cosmos/iavl/pull/265) Encoding of tree nodes and proofs is now done
+- [\#265](https://github.com/reapchain/iavl/pull/265) Encoding of tree nodes and proofs is now done
   using the Go stdlib and Protobuf instead of Amino. The binary encoding is identical.
 
 ### Bug Fixes
 
-- [\#309](https://github.com/cosmos/iavl/pull/309) Allow `SaveVersion()` for old, empty versions as
+- [\#309](https://github.com/reapchain/iavl/pull/309) Allow `SaveVersion()` for old, empty versions as
   long as the new version is identical.
 
 ## 0.14.3 (November 23, 2020)
@@ -85,28 +85,28 @@ Special thanks to external contributors on this release: @klim0v
 
 ### Bug Fixes
 
-- [\#324](https://github.com/cosmos/iavl/pull/324) Fix `DeleteVersions` not properly removing
+- [\#324](https://github.com/reapchain/iavl/pull/324) Fix `DeleteVersions` not properly removing
   orphans, and add `DeleteVersionsRange` to delete a range.
 
 ## 0.14.2 (October 12, 2020)
 
 ### Bug Fixes
 
-- [\#318](https://github.com/cosmos/iavl/pull/318) Fix constant overflow when compiling for 32bit machines.
+- [\#318](https://github.com/reapchain/iavl/pull/318) Fix constant overflow when compiling for 32bit machines.
 
 ## 0.14.1 (October 9, 2020)
 
 ### Improvements
 
-- [\#299](https://github.com/cosmos/iavl/pull/299) Added `Options.InitialVersion` to specify the
+- [\#299](https://github.com/reapchain/iavl/pull/299) Added `Options.InitialVersion` to specify the
   initial version for new IAVL trees.
 
-- [\#312](https://github.com/cosmos/iavl/pull/312) Added `MutableTree.SetInitialVersion()` to
+- [\#312](https://github.com/reapchain/iavl/pull/312) Added `MutableTree.SetInitialVersion()` to
   set the initial version after tree initialization.
 
 ### Bug Fixes
 
-- [\#288](https://github.com/cosmos/iavl/pull/288) Fix panics when generating proofs for keys that are all `0xFF`.
+- [\#288](https://github.com/reapchain/iavl/pull/288) Fix panics when generating proofs for keys that are all `0xFF`.
 
 ## 0.14.0 (July 2, 2020)
 
@@ -140,25 +140,25 @@ Users wishing to prune historical versions can do so via `MutableTree.DeleteVers
 
 ### Breaking Changes
 
-- [\#274](https://github.com/cosmos/iavl/pull/274) Remove pruning options `KeepEvery` and
+- [\#274](https://github.com/reapchain/iavl/pull/274) Remove pruning options `KeepEvery` and
   `KeepRecent` (see warning above) and the `recentDB` parameter to `NewMutableTreeWithOpts()`.
 
 ### Improvements
 
-- [\#282](https://github.com/cosmos/iavl/pull/282) Add `Repair013Orphans()` to repair faulty
+- [\#282](https://github.com/reapchain/iavl/pull/282) Add `Repair013Orphans()` to repair faulty
   orphans in a database last written to by IAVL 0.13.x
 
-- [\#271](https://github.com/cosmos/iavl/pull/271) Add `MutableTree.DeleteVersions()` for deleting
+- [\#271](https://github.com/reapchain/iavl/pull/271) Add `MutableTree.DeleteVersions()` for deleting
   multiple versions.
 
-- [\#235](https://github.com/cosmos/iavl/pull/235) Reduce `ImmutableTree.Export()` buffer size from
+- [\#235](https://github.com/reapchain/iavl/pull/235) Reduce `ImmutableTree.Export()` buffer size from
   64 to 32 nodes.
 
 ### Bug Fixes
 
-- [\#281](https://github.com/cosmos/iavl/pull/281) Remove unnecessary Protobuf dependencies.
+- [\#281](https://github.com/reapchain/iavl/pull/281) Remove unnecessary Protobuf dependencies.
 
-- [\#275](https://github.com/cosmos/iavl/pull/275) Fix data corruption with
+- [\#275](https://github.com/reapchain/iavl/pull/275) Fix data corruption with
   `LoadVersionForOverwriting`.
 
 ## 0.13.3 (April 5, 2020)
@@ -222,7 +222,7 @@ IMPROVEMENTS
 
 IMPROVEMENTS
 
-- Use Tendermint v0.30.2 and close batch after write (related pull request in Tendermint: https://github.com/tendermint/tendermint/pull/3397)
+- Use Tendermint v0.30.2 and close batch after write (related pull request in Tendermint: https://github.com/reapchain/reapchain-core/pull/3397)
 
 ## 0.12.1 (February 12, 2019)
 
@@ -234,7 +234,7 @@ IMPROVEMENTS
 
 BREAKING CHANGES
 
-- Uses new Tendermint ReverseIterator API. See https://github.com/tendermint/tendermint/pull/2913
+- Uses new Tendermint ReverseIterator API. See https://github.com/reapchain/reapchain-core/pull/2913
 
 ## 0.11.1 (October 29, 2018)
 

@@ -5,10 +5,10 @@ import (
 
 	proto "github.com/gogo/protobuf/proto"
 	"github.com/pkg/errors"
-	"github.com/tendermint/tendermint/crypto/merkle"
-	tmmerkle "github.com/tendermint/tendermint/proto/tendermint/crypto"
+	"github.com/reapchain/reapchain-core/crypto/merkle"
+	tmmerkle "github.com/reapchain/reapchain-core/proto/tendermint/crypto"
 
-	iavlproto "github.com/cosmos/iavl/proto"
+	iavlproto "github.com/reapchain/iavl/proto"
 )
 
 const ProofOpIAVLAbsence = "iavl:a"

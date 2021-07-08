@@ -1,4 +1,4 @@
-module github.com/cosmos/iavl
+module github.com/reapchain/iavl
 
 go 1.13
 
@@ -10,10 +10,10 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/pkg/errors v0.9.1
+	github.com/reapchain/reapchain-core v0.0.1
 	github.com/stretchr/testify v1.7.0
-	github.com/tendermint/tendermint v0.34.10
 	github.com/tendermint/tm-db v0.6.4
-	golang.org/x/crypto v0.0.0-20201117144127-c1f2f97bffc9
-	google.golang.org/genproto v0.0.0-20201119123407-9b1e624d6bc4
-	google.golang.org/grpc v1.37.0
+	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e
+	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c
+	google.golang.org/grpc v1.39.0
 )

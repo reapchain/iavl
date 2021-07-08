@@ -7,8 +7,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	iavl "github.com/cosmos/iavl"
-	pb "github.com/cosmos/iavl/proto"
+	iavl "github.com/reapchain/iavl"
+	pb "github.com/reapchain/iavl/proto"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/pkg/errors"
 	dbm "github.com/tendermint/tm-db"
