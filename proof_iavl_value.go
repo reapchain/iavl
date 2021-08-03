@@ -6,7 +6,7 @@ import (
 	proto "github.com/gogo/protobuf/proto"
 	"github.com/pkg/errors"
 	"github.com/reapchain/reapchain-core/crypto/merkle"
-	tmmerkle "github.com/reapchain/reapchain-core/proto/tendermint/crypto"
+	tmmerkle "github.com/reapchain/reapchain-core/proto/reapchain/crypto"
 
 	iavlproto "github.com/reapchain/iavl/proto"
 )

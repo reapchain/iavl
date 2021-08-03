@@ -13,7 +13,9 @@ require (
 	github.com/reapchain/reapchain-core v0.0.1
 	github.com/stretchr/testify v1.7.0
 	github.com/tendermint/tm-db v0.6.4
-	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e
+	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c
 	google.golang.org/grpc v1.39.0
 )
+
+replace github.com/reapchain/reapchain-core v0.0.1 => github.com/reapchain/reapchain-core v0.0.2-0.20210801224948-12ee5c541c87
