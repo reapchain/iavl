@@ -10,7 +10,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/pkg/errors v0.9.1
-	github.com/reapchain/reapchain-core v0.1.0
+	github.com/reapchain/reapchain-core v0.1.1
 	github.com/stretchr/testify v1.7.0
 	github.com/tendermint/tm-db v0.6.6
 	golang.org/x/crypto v0.0.0-20211215153901-e495a2d5b3d3
@@ -18,5 +18,3 @@ require (
 	google.golang.org/grpc v1.43.0
 	gopkg.in/check.v1 v1.0.0-20200902074654-038fdea0a05b // indirect
 )
-
-replace github.com/reapchain/reapchain-core v0.1.0 => /home/martin/evmos/reapchain-core
