@@ -224,7 +224,7 @@ Special thanks to external contributors on this release:
 
 ### IMPROVEMENTS
 
-- [\#46](https://github.com/tendermint/iavl/issues/46) Removed all instances of cmn (tendermint/tendermint/libs/common)
+- [\#46](https://github.com/tendermint/iavl/issues/46) Removed all instances of cmn (reapchain/reapchain-core/libs/common)
 
 ## 0.12.3 (July 12, 2019)
 
@@ -243,7 +243,7 @@ IMPROVEMENTS
 
 IMPROVEMENTS
 
-- Use Tendermint v0.30.2 and close batch after write (related pull request in Tendermint: https://github.com/tendermint/tendermint/pull/3397)
+- Use Tendermint v0.30.2 and close batch after write (related pull request in Tendermint: https://github.com/reapchain/reapchain-core/pull/3397)
 
 ## 0.12.1 (February 12, 2019)
 
@@ -255,7 +255,7 @@ IMPROVEMENTS
 
 BREAKING CHANGES
 
-- Uses new Tendermint ReverseIterator API. See https://github.com/tendermint/tendermint/pull/2913
+- Uses new Tendermint ReverseIterator API. See https://github.com/reapchain/reapchain-core/pull/2913
 
 ## 0.11.1 (October 29, 2018)
 
