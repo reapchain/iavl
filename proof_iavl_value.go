@@ -8,7 +8,7 @@ import (
 	"github.com/reapchain/reapchain-core/crypto/merkle"
 	tmmerkle "github.com/reapchain/reapchain-core/proto/reapchain/crypto"
 
-	iavlproto "github.com/cosmos/iavl/proto"
+	iavlproto "github.com/reapchain/iavl/proto"
 )
 
 const ProofOpIAVLValue = "iavl:v"
