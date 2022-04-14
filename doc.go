@@ -9,7 +9,7 @@
 //
 // Basic usage of MutableTree:
 //
-//  import "github.com/cosmos/iavl"
+//  import "github.com/reapchain/iavl"
 //  import "github.com/tendermint/tm-db"
 //  ...
 //
