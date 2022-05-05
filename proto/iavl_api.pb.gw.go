@@ -15,13 +15,14 @@ import (
 
 	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
-	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/utilities"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
+	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 // Suppress "imported and not used" errors
@@ -31,6 +32,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = descriptor.ForMessage
+var _ = metadata.Join
 
 var (
 	filter_IAVLService_Has_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
@@ -425,7 +427,7 @@ func local_request_IAVLService_Remove_0(ctx context.Context, marshaler runtime.M
 }
 
 func request_IAVLService_SaveVersion_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -442,7 +444,7 @@ func request_IAVLService_SaveVersion_0(ctx context.Context, marshaler runtime.Ma
 }
 
 func local_request_IAVLService_SaveVersion_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -493,7 +495,7 @@ func local_request_IAVLService_DeleteVersion_0(ctx context.Context, marshaler ru
 }
 
 func request_IAVLService_Version_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := client.Version(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -502,7 +504,7 @@ func request_IAVLService_Version_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 func local_request_IAVLService_Version_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := server.Version(ctx, &protoReq)
@@ -511,7 +513,7 @@ func local_request_IAVLService_Version_0(ctx context.Context, marshaler runtime.
 }
 
 func request_IAVLService_Hash_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := client.Hash(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -520,7 +522,7 @@ func request_IAVLService_Hash_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 func local_request_IAVLService_Hash_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := server.Hash(ctx, &protoReq)
@@ -673,7 +675,7 @@ func local_request_IAVLService_VerifyAbsence_0(ctx context.Context, marshaler ru
 }
 
 func request_IAVLService_Rollback_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -690,7 +692,7 @@ func request_IAVLService_Rollback_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_IAVLService_Rollback_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -707,7 +709,7 @@ func local_request_IAVLService_Rollback_0(ctx context.Context, marshaler runtime
 }
 
 func request_IAVLService_GetAvailableVersions_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := client.GetAvailableVersions(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -716,7 +718,7 @@ func request_IAVLService_GetAvailableVersions_0(ctx context.Context, marshaler r
 }
 
 func local_request_IAVLService_GetAvailableVersions_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := server.GetAvailableVersions(ctx, &protoReq)
@@ -725,7 +727,7 @@ func local_request_IAVLService_GetAvailableVersions_0(ctx context.Context, marsh
 }
 
 func request_IAVLService_Load_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -742,7 +744,7 @@ func request_IAVLService_Load_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 func local_request_IAVLService_Load_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -827,7 +829,7 @@ func local_request_IAVLService_LoadVersionForOverwriting_0(ctx context.Context, 
 }
 
 func request_IAVLService_Size_0(ctx context.Context, marshaler runtime.Marshaler, client IAVLServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := client.Size(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -836,7 +838,7 @@ func request_IAVLService_Size_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 func local_request_IAVLService_Size_0(ctx context.Context, marshaler runtime.Marshaler, server IAVLServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq empty.Empty
+	var protoReq emptypb.Empty
 	var metadata runtime.ServerMetadata
 
 	msg, err := server.Size(ctx, &protoReq)
@@ -875,12 +877,14 @@ func request_IAVLService_List_0(ctx context.Context, marshaler runtime.Marshaler
 // RegisterIAVLServiceHandlerServer registers the http handlers for service IAVLService to "mux".
 // UnaryRPC     :call IAVLServiceServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features (such as grpc.SendHeader, etc) to stop working. Consider using RegisterIAVLServiceHandlerFromEndpoint instead.
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterIAVLServiceHandlerFromEndpoint instead.
 func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server IAVLServiceServer) error {
 
 	mux.Handle("GET", pattern_IAVLService_Has_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -888,6 +892,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Has_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -901,6 +906,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_HasVersioned_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -908,6 +915,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_HasVersioned_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -921,6 +929,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_Get_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -928,6 +938,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Get_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -941,6 +952,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_GetByIndex_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -948,6 +961,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_GetByIndex_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -961,6 +975,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_GetWithProof_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -968,6 +984,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_GetWithProof_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -981,6 +998,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_GetVersioned_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -988,6 +1007,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_GetVersioned_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1001,6 +1021,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_GetVersionedWithProof_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1008,6 +1030,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_GetVersionedWithProof_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1021,6 +1044,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_Set_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1028,6 +1053,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Set_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1041,6 +1067,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_Remove_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1048,6 +1076,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Remove_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1061,6 +1090,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_SaveVersion_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1068,6 +1099,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_SaveVersion_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1081,6 +1113,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_DeleteVersion_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1088,6 +1122,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_DeleteVersion_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1101,6 +1136,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_Version_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1108,6 +1145,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Version_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1121,6 +1159,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_Hash_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1128,6 +1168,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Hash_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1141,6 +1182,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_VersionExists_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1148,6 +1191,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_VersionExists_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1161,6 +1205,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_Verify_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1168,6 +1214,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Verify_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1181,6 +1228,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_VerifyItem_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1188,6 +1237,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_VerifyItem_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1201,6 +1251,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_VerifyAbsence_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1208,6 +1260,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_VerifyAbsence_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1221,6 +1274,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_Rollback_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1228,6 +1283,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Rollback_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1241,6 +1297,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_GetAvailableVersions_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1248,6 +1306,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_GetAvailableVersions_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1261,6 +1320,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_Load_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1268,6 +1329,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Load_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1281,6 +1343,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_LoadVersion_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1288,6 +1352,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_LoadVersion_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1301,6 +1366,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("POST", pattern_IAVLService_LoadVersionForOverwriting_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1308,6 +1375,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_LoadVersionForOverwriting_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
@@ -1321,6 +1389,8 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 	mux.Handle("GET", pattern_IAVLService_Size_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
 		if err != nil {
@@ -1328,6 +1398,7 @@ func RegisterIAVLServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 			return
 		}
 		resp, md, err := local_request_IAVLService_Size_0(rctx, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
