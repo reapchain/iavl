@@ -7,11 +7,11 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -1618,40 +1618,40 @@ type IAVLServiceClient interface {
 	// SaveVersion saves a new IAVL tree version to the DB based on the current
 	// state (version) of the tree. It returns a result containing the hash and
 	// new version number.
-	SaveVersion(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*SaveVersionResponse, error)
+	SaveVersion(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SaveVersionResponse, error)
 	// DeleteVersion deletes an IAVL tree version from the DB. The version can then
 	// no longer be accessed. It returns a result containing the version and root
 	// hash of the versioned tree that was deleted.
 	DeleteVersion(ctx context.Context, in *DeleteVersionRequest, opts ...grpc.CallOption) (*DeleteVersionResponse, error)
 	// Version returns the IAVL tree version based on the current state.
-	Version(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*VersionResponse, error)
+	Version(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*VersionResponse, error)
 	// Hash returns the IAVL tree root hash based on the current state.
-	Hash(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*HashResponse, error)
+	Hash(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*HashResponse, error)
 	// VersionExists returns a result containing a boolean on whether or not a given
 	// version exists in the IAVL tree.
 	VersionExists(ctx context.Context, in *VersionExistsRequest, opts ...grpc.CallOption) (*VersionExistsResponse, error)
 	// Verify verifies an IAVL range proof returning an error if the proof is
 	// invalid.
-	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// VerifyItem verifies if a given key/value pair in an IAVL range proof returning
 	// an error if the proof or key is invalid.
-	VerifyItem(ctx context.Context, in *VerifyItemRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	VerifyItem(ctx context.Context, in *VerifyItemRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// VerifyAbsence verifies the absence of a given key in an IAVL range proof
 	// returning an error if the proof or key is invalid.
-	VerifyAbsence(ctx context.Context, in *VerifyAbsenceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	VerifyAbsence(ctx context.Context, in *VerifyAbsenceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Rollback resets the working tree to the latest saved version, discarding
 	// any unsaved modifications.
-	Rollback(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error)
+	Rollback(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Returns the committed versions
-	GetAvailableVersions(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableVersionsResponse, error)
+	GetAvailableVersions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetAvailableVersionsResponse, error)
 	// Load the most recent version
-	Load(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error)
+	Load(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Load a specific version
-	LoadVersion(ctx context.Context, in *LoadVersionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	LoadVersion(ctx context.Context, in *LoadVersionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Load a specific version and delete all the more recent versions
-	LoadVersionForOverwriting(ctx context.Context, in *LoadVersionForOverwritingRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	LoadVersionForOverwriting(ctx context.Context, in *LoadVersionForOverwritingRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Get the number of leaves in the tree
-	Size(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*SizeResponse, error)
+	Size(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SizeResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (IAVLService_ListClient, error)
 }
 
@@ -1744,7 +1744,7 @@ func (c *iAVLServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts 
 	return out, nil
 }
 
-func (c *iAVLServiceClient) SaveVersion(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*SaveVersionResponse, error) {
+func (c *iAVLServiceClient) SaveVersion(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SaveVersionResponse, error) {
 	out := new(SaveVersionResponse)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/SaveVersion", in, out, opts...)
 	if err != nil {
@@ -1762,7 +1762,7 @@ func (c *iAVLServiceClient) DeleteVersion(ctx context.Context, in *DeleteVersion
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Version(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*VersionResponse, error) {
+func (c *iAVLServiceClient) Version(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*VersionResponse, error) {
 	out := new(VersionResponse)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Version", in, out, opts...)
 	if err != nil {
@@ -1771,7 +1771,7 @@ func (c *iAVLServiceClient) Version(ctx context.Context, in *empty.Empty, opts .
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Hash(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*HashResponse, error) {
+func (c *iAVLServiceClient) Hash(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*HashResponse, error) {
 	out := new(HashResponse)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Hash", in, out, opts...)
 	if err != nil {
@@ -1789,8 +1789,8 @@ func (c *iAVLServiceClient) VersionExists(ctx context.Context, in *VersionExists
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Verify", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1798,8 +1798,8 @@ func (c *iAVLServiceClient) Verify(ctx context.Context, in *VerifyRequest, opts 
 	return out, nil
 }
 
-func (c *iAVLServiceClient) VerifyItem(ctx context.Context, in *VerifyItemRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) VerifyItem(ctx context.Context, in *VerifyItemRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/VerifyItem", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1807,8 +1807,8 @@ func (c *iAVLServiceClient) VerifyItem(ctx context.Context, in *VerifyItemReques
 	return out, nil
 }
 
-func (c *iAVLServiceClient) VerifyAbsence(ctx context.Context, in *VerifyAbsenceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) VerifyAbsence(ctx context.Context, in *VerifyAbsenceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/VerifyAbsence", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1816,8 +1816,8 @@ func (c *iAVLServiceClient) VerifyAbsence(ctx context.Context, in *VerifyAbsence
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Rollback(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) Rollback(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Rollback", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1825,7 +1825,7 @@ func (c *iAVLServiceClient) Rollback(ctx context.Context, in *empty.Empty, opts 
 	return out, nil
 }
 
-func (c *iAVLServiceClient) GetAvailableVersions(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableVersionsResponse, error) {
+func (c *iAVLServiceClient) GetAvailableVersions(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetAvailableVersionsResponse, error) {
 	out := new(GetAvailableVersionsResponse)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/GetAvailableVersions", in, out, opts...)
 	if err != nil {
@@ -1834,8 +1834,8 @@ func (c *iAVLServiceClient) GetAvailableVersions(ctx context.Context, in *empty.
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Load(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) Load(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Load", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1843,8 +1843,8 @@ func (c *iAVLServiceClient) Load(ctx context.Context, in *empty.Empty, opts ...g
 	return out, nil
 }
 
-func (c *iAVLServiceClient) LoadVersion(ctx context.Context, in *LoadVersionRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) LoadVersion(ctx context.Context, in *LoadVersionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/LoadVersion", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1852,8 +1852,8 @@ func (c *iAVLServiceClient) LoadVersion(ctx context.Context, in *LoadVersionRequ
 	return out, nil
 }
 
-func (c *iAVLServiceClient) LoadVersionForOverwriting(ctx context.Context, in *LoadVersionForOverwritingRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
-	out := new(empty.Empty)
+func (c *iAVLServiceClient) LoadVersionForOverwriting(ctx context.Context, in *LoadVersionForOverwritingRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/LoadVersionForOverwriting", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1861,7 +1861,7 @@ func (c *iAVLServiceClient) LoadVersionForOverwriting(ctx context.Context, in *L
 	return out, nil
 }
 
-func (c *iAVLServiceClient) Size(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*SizeResponse, error) {
+func (c *iAVLServiceClient) Size(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*SizeResponse, error) {
 	out := new(SizeResponse)
 	err := c.cc.Invoke(ctx, "/iavl.IAVLService/Size", in, out, opts...)
 	if err != nil {
@@ -1935,40 +1935,40 @@ type IAVLServiceServer interface {
 	// SaveVersion saves a new IAVL tree version to the DB based on the current
 	// state (version) of the tree. It returns a result containing the hash and
 	// new version number.
-	SaveVersion(context.Context, *empty.Empty) (*SaveVersionResponse, error)
+	SaveVersion(context.Context, *emptypb.Empty) (*SaveVersionResponse, error)
 	// DeleteVersion deletes an IAVL tree version from the DB. The version can then
 	// no longer be accessed. It returns a result containing the version and root
 	// hash of the versioned tree that was deleted.
 	DeleteVersion(context.Context, *DeleteVersionRequest) (*DeleteVersionResponse, error)
 	// Version returns the IAVL tree version based on the current state.
-	Version(context.Context, *empty.Empty) (*VersionResponse, error)
+	Version(context.Context, *emptypb.Empty) (*VersionResponse, error)
 	// Hash returns the IAVL tree root hash based on the current state.
-	Hash(context.Context, *empty.Empty) (*HashResponse, error)
+	Hash(context.Context, *emptypb.Empty) (*HashResponse, error)
 	// VersionExists returns a result containing a boolean on whether or not a given
 	// version exists in the IAVL tree.
 	VersionExists(context.Context, *VersionExistsRequest) (*VersionExistsResponse, error)
 	// Verify verifies an IAVL range proof returning an error if the proof is
 	// invalid.
-	Verify(context.Context, *VerifyRequest) (*empty.Empty, error)
+	Verify(context.Context, *VerifyRequest) (*emptypb.Empty, error)
 	// VerifyItem verifies if a given key/value pair in an IAVL range proof returning
 	// an error if the proof or key is invalid.
-	VerifyItem(context.Context, *VerifyItemRequest) (*empty.Empty, error)
+	VerifyItem(context.Context, *VerifyItemRequest) (*emptypb.Empty, error)
 	// VerifyAbsence verifies the absence of a given key in an IAVL range proof
 	// returning an error if the proof or key is invalid.
-	VerifyAbsence(context.Context, *VerifyAbsenceRequest) (*empty.Empty, error)
+	VerifyAbsence(context.Context, *VerifyAbsenceRequest) (*emptypb.Empty, error)
 	// Rollback resets the working tree to the latest saved version, discarding
 	// any unsaved modifications.
-	Rollback(context.Context, *empty.Empty) (*empty.Empty, error)
+	Rollback(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 	// Returns the committed versions
-	GetAvailableVersions(context.Context, *empty.Empty) (*GetAvailableVersionsResponse, error)
+	GetAvailableVersions(context.Context, *emptypb.Empty) (*GetAvailableVersionsResponse, error)
 	// Load the most recent version
-	Load(context.Context, *empty.Empty) (*empty.Empty, error)
+	Load(context.Context, *emptypb.Empty) (*emptypb.Empty, error)
 	// Load a specific version
-	LoadVersion(context.Context, *LoadVersionRequest) (*empty.Empty, error)
+	LoadVersion(context.Context, *LoadVersionRequest) (*emptypb.Empty, error)
 	// Load a specific version and delete all the more recent versions
-	LoadVersionForOverwriting(context.Context, *LoadVersionForOverwritingRequest) (*empty.Empty, error)
+	LoadVersionForOverwriting(context.Context, *LoadVersionForOverwritingRequest) (*emptypb.Empty, error)
 	// Get the number of leaves in the tree
-	Size(context.Context, *empty.Empty) (*SizeResponse, error)
+	Size(context.Context, *emptypb.Empty) (*SizeResponse, error)
 	List(*ListRequest, IAVLService_ListServer) error
 }
 
@@ -2003,46 +2003,46 @@ func (*UnimplementedIAVLServiceServer) Set(ctx context.Context, req *SetRequest)
 func (*UnimplementedIAVLServiceServer) Remove(ctx context.Context, req *RemoveRequest) (*RemoveResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
 }
-func (*UnimplementedIAVLServiceServer) SaveVersion(ctx context.Context, req *empty.Empty) (*SaveVersionResponse, error) {
+func (*UnimplementedIAVLServiceServer) SaveVersion(ctx context.Context, req *emptypb.Empty) (*SaveVersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveVersion not implemented")
 }
 func (*UnimplementedIAVLServiceServer) DeleteVersion(ctx context.Context, req *DeleteVersionRequest) (*DeleteVersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteVersion not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Version(ctx context.Context, req *empty.Empty) (*VersionResponse, error) {
+func (*UnimplementedIAVLServiceServer) Version(ctx context.Context, req *emptypb.Empty) (*VersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Version not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Hash(ctx context.Context, req *empty.Empty) (*HashResponse, error) {
+func (*UnimplementedIAVLServiceServer) Hash(ctx context.Context, req *emptypb.Empty) (*HashResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Hash not implemented")
 }
 func (*UnimplementedIAVLServiceServer) VersionExists(ctx context.Context, req *VersionExistsRequest) (*VersionExistsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VersionExists not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Verify(ctx context.Context, req *VerifyRequest) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) Verify(ctx context.Context, req *VerifyRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
 }
-func (*UnimplementedIAVLServiceServer) VerifyItem(ctx context.Context, req *VerifyItemRequest) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) VerifyItem(ctx context.Context, req *VerifyItemRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyItem not implemented")
 }
-func (*UnimplementedIAVLServiceServer) VerifyAbsence(ctx context.Context, req *VerifyAbsenceRequest) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) VerifyAbsence(ctx context.Context, req *VerifyAbsenceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyAbsence not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Rollback(ctx context.Context, req *empty.Empty) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) Rollback(ctx context.Context, req *emptypb.Empty) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rollback not implemented")
 }
-func (*UnimplementedIAVLServiceServer) GetAvailableVersions(ctx context.Context, req *empty.Empty) (*GetAvailableVersionsResponse, error) {
+func (*UnimplementedIAVLServiceServer) GetAvailableVersions(ctx context.Context, req *emptypb.Empty) (*GetAvailableVersionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableVersions not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Load(ctx context.Context, req *empty.Empty) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) Load(ctx context.Context, req *emptypb.Empty) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Load not implemented")
 }
-func (*UnimplementedIAVLServiceServer) LoadVersion(ctx context.Context, req *LoadVersionRequest) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) LoadVersion(ctx context.Context, req *LoadVersionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoadVersion not implemented")
 }
-func (*UnimplementedIAVLServiceServer) LoadVersionForOverwriting(ctx context.Context, req *LoadVersionForOverwritingRequest) (*empty.Empty, error) {
+func (*UnimplementedIAVLServiceServer) LoadVersionForOverwriting(ctx context.Context, req *LoadVersionForOverwritingRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoadVersionForOverwriting not implemented")
 }
-func (*UnimplementedIAVLServiceServer) Size(ctx context.Context, req *empty.Empty) (*SizeResponse, error) {
+func (*UnimplementedIAVLServiceServer) Size(ctx context.Context, req *emptypb.Empty) (*SizeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Size not implemented")
 }
 func (*UnimplementedIAVLServiceServer) List(req *ListRequest, srv IAVLService_ListServer) error {
@@ -2216,7 +2216,7 @@ func _IAVLService_Remove_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 func _IAVLService_SaveVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2228,7 +2228,7 @@ func _IAVLService_SaveVersion_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: "/iavl.IAVLService/SaveVersion",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).SaveVersion(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).SaveVersion(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2252,7 +2252,7 @@ func _IAVLService_DeleteVersion_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _IAVLService_Version_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2264,13 +2264,13 @@ func _IAVLService_Version_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/iavl.IAVLService/Version",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).Version(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).Version(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _IAVLService_Hash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2282,7 +2282,7 @@ func _IAVLService_Hash_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/iavl.IAVLService/Hash",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).Hash(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).Hash(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2360,7 +2360,7 @@ func _IAVLService_VerifyAbsence_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _IAVLService_Rollback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2372,13 +2372,13 @@ func _IAVLService_Rollback_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: "/iavl.IAVLService/Rollback",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).Rollback(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).Rollback(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _IAVLService_GetAvailableVersions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2390,13 +2390,13 @@ func _IAVLService_GetAvailableVersions_Handler(srv interface{}, ctx context.Cont
 		FullMethod: "/iavl.IAVLService/GetAvailableVersions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).GetAvailableVersions(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).GetAvailableVersions(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _IAVLService_Load_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2408,7 +2408,7 @@ func _IAVLService_Load_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/iavl.IAVLService/Load",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).Load(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).Load(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2450,7 +2450,7 @@ func _IAVLService_LoadVersionForOverwriting_Handler(srv interface{}, ctx context
 }
 
 func _IAVLService_Size_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2462,7 +2462,7 @@ func _IAVLService_Size_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/iavl.IAVLService/Size",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IAVLServiceServer).Size(ctx, req.(*empty.Empty))
+		return srv.(IAVLServiceServer).Size(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4148,10 +4148,7 @@ func (m *HasRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4254,10 +4251,7 @@ func (m *HasVersionedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4341,10 +4335,7 @@ func (m *GetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4413,10 +4404,7 @@ func (m *GetByIndexRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4519,10 +4507,7 @@ func (m *GetVersionedRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4640,10 +4625,7 @@ func (m *SetRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4727,10 +4709,7 @@ func (m *RemoveRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4799,10 +4778,7 @@ func (m *DeleteVersionRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4871,10 +4847,7 @@ func (m *VersionExistsRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -4994,10 +4967,7 @@ func (m *VerifyRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5185,10 +5155,7 @@ func (m *VerifyItemRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5342,10 +5309,7 @@ func (m *VerifyAbsenceRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5414,10 +5378,7 @@ func (m *LoadVersionRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5486,10 +5447,7 @@ func (m *LoadVersionForOverwritingRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5627,10 +5585,7 @@ func (m *ListRequest) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5700,10 +5655,7 @@ func (m *HasResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5826,10 +5778,7 @@ func (m *GetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -5947,10 +5896,7 @@ func (m *GetByIndexResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6020,10 +5966,7 @@ func (m *SetResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6127,10 +6070,7 @@ func (m *RemoveResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6233,10 +6173,7 @@ func (m *SaveVersionResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6339,10 +6276,7 @@ func (m *DeleteVersionResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6411,10 +6345,7 @@ func (m *VersionResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6498,10 +6429,7 @@ func (m *HashResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6571,10 +6499,7 @@ func (m *VersionExistsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6694,10 +6619,7 @@ func (m *GetWithProofResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6823,10 +6745,7 @@ func (m *GetAvailableVersionsResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -6895,10 +6814,7 @@ func (m *SizeResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {
@@ -7016,10 +6932,7 @@ func (m *ListResponse) Unmarshal(dAtA []byte) error {
 			if err != nil {
 				return err
 			}
-			if skippy < 0 {
-				return ErrInvalidLengthIavlApi
-			}
-			if (iNdEx + skippy) < 0 {
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
 				return ErrInvalidLengthIavlApi
 			}
 			if (iNdEx + skippy) > l {

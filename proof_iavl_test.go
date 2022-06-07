@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"testing"
 
+	tmmerkle "github.com/reapchain/reapchain-core/proto/reapchain-core/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	tmmerkle "github.com/reapchain/reapchain-core/proto/reapchain/crypto"
 	db "github.com/tendermint/tm-db"
 )
 
