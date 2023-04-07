@@ -12,7 +12,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/cosmos/iavl/internal/encoding"
+	"github.com/reapchain/iavl/internal/encoding"
 )
 
 // Node represents a node in a Tree.

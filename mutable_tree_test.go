@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/cosmos/iavl/internal/encoding"
-	"github.com/cosmos/iavl/mock"
 	"github.com/golang/mock/gomock"
+	"github.com/reapchain/iavl/internal/encoding"
+	"github.com/reapchain/iavl/mock"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

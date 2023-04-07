@@ -16,7 +16,7 @@ import (
 	"github.com/stretchr/testify/require"
 	db "github.com/tendermint/tm-db"
 
-	iavlrand "github.com/cosmos/iavl/internal/rand"
+	iavlrand "github.com/reapchain/iavl/internal/rand"
 )
 
 var testLevelDB bool

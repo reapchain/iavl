@@ -3,8 +3,8 @@ package iavl
 import (
 	"io"
 
-	"github.com/cosmos/iavl/internal/encoding"
 	"github.com/pkg/errors"
+	"github.com/reapchain/iavl/internal/encoding"
 )
 
 // NOTE: This file favors int64 as opposed to int for size/counts.

@@ -34,7 +34,7 @@ screen
 Copy them back from your local machine:
 
 ```
-scp user@host:go/src/github.com/cosmos/iavl/results.txt results.txt
+scp user@host:go/src/github.com/reapchain/iavl/results.txt results.txt
 git add results
 ```
 

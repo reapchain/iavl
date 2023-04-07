@@ -4,11 +4,11 @@ COMMIT := $(shell git log -1 --format='%H')
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 DOCKER_BUF := docker run -v $(shell pwd):/workspace --workdir /workspace bufbuild/buf
 DOCKER := $(shell which docker)
-HTTPS_GIT := https://github.com/cosmos/iavl.git
+HTTPS_GIT := https://github.com/reapchain/iavl.git
 
 PDFFLAGS := -pdf --nodefraction=0.1
 CMDFLAGS := -ldflags -X TENDERMINT_IAVL_COLORS_ON=on 
-LDFLAGS := -ldflags "-X github.com/cosmos/iavl.Version=$(VERSION) -X github.com/cosmos/iavl.Commit=$(COMMIT) -X github.com/cosmos/iavl.Branch=$(BRANCH)"
+LDFLAGS := -ldflags "-X github.com/reapchain/iavl.Version=$(VERSION) -X github.com/reapchain/iavl.Commit=$(COMMIT) -X github.com/reapchain/iavl.Branch=$(BRANCH)"
 
 all: lint test install
 

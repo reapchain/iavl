@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This runs benchmarks, by default from master branch of
-# github.com/cosmos/iavl
+# github.com/reapchain/iavl
 # You can customize this by optional command line args
 #
 # INSTALL_USER.sh [branch] [repouser]

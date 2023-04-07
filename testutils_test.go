@@ -13,8 +13,8 @@ import (
 	"github.com/stretchr/testify/require"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/iavl/internal/encoding"
-	iavlrand "github.com/cosmos/iavl/internal/rand"
+	"github.com/reapchain/iavl/internal/encoding"
+	iavlrand "github.com/reapchain/iavl/internal/rand"
 )
 
 type iteratorTestConfig struct {

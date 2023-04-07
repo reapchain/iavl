@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/iavl/mock"
+	"github.com/reapchain/iavl/mock"
 )
 
 func BenchmarkNodeKey(b *testing.B) {

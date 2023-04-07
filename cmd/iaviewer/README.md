@@ -9,8 +9,8 @@ Below is a brief introduction to the tool.
 Once this is merged into the offical repo, master, you should be able to do:
 
 ```shell
-go get github.com/cosmos/iavl
-cd ${GOPATH}/src/github.com/cosmos/iavl
+go get github.com/reapchain/iavl
+cd ${GOPATH}/src/github.com/reapchain/iavl
 make install
 ```
 

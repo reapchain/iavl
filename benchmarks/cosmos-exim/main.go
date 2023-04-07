@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/cosmos/iavl"
+	"github.com/reapchain/iavl"
 	tmdb "github.com/tendermint/tm-db"
 )
 
