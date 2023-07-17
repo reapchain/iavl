@@ -37,5 +37,4 @@ require (
 
 replace (
     github.com/reapchain/reapchain-core => ../reapchain-core
-    github.com/reapchain/iavl => ../iavl
 )
