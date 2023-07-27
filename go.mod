@@ -7,7 +7,7 @@ require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/mock v1.6.0
 	github.com/pkg/errors v0.9.1
-	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.17
+	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.18
 	github.com/stretchr/testify v1.8.0
 	github.com/tendermint/tm-db v0.6.7
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
@@ -33,8 +33,4 @@ require (
 	golang.org/x/sys v0.0.0-20220615213510-4f61da869c0c // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-)
-
-replace (
-    github.com/reapchain/reapchain-core => ../reapchain-core
 )
