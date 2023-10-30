@@ -807,8 +807,8 @@ github.com/quasilyte/regex/syntax v0.0.0-20200407221936-30656e2c4a95/go.mod h1:r
 github.com/quasilyte/stdinfo v0.0.0-20220114132959-f7386bf02567/go.mod h1:DWNGW8A4Y+GyBgPuaQJuWiy0XYftx4Xm/y5Jqk9I6VQ=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
-github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.20 h1:QR5MVe3iq3FJBqE66mi7sTg6s33ShEnTPx3MhScXmz0=
-github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.20/go.mod h1:JvYq9sN5x1x6Uf3xG26pO/4xYRco0Wmdo5RJxUtgjSM=
+github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.22 h1:kOWK+TEcEMcL9gFJ+YuZr448BshlppajKmSobFMQZM0=
+github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.22/go.mod h1:JvYq9sN5x1x6Uf3xG26pO/4xYRco0Wmdo5RJxUtgjSM=
 github.com/remyoudompheng/go-dbus v0.0.0-20121104212943-b7232d34b1d5/go.mod h1:+u151txRmLpwxBmpYn9z3d1sdJdjRPQpsXuYeY9jNls=
 github.com/remyoudompheng/go-liblzma v0.0.0-20190506200333-81bf2d431b96/go.mod h1:90HvCY7+oHHUKkbeMCiHt1WuFR2/hPJ9QrljDG+v6ls=
 github.com/remyoudompheng/go-misc v0.0.0-20190427085024-2d6ac652a50e/go.mod h1:80FQABjoFzZ2M5uEa6FUaJYEmqU2UOKojlFVak1UAwI=
